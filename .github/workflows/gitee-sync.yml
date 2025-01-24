@@ -116,6 +116,7 @@ jobs:
           echo "📥 正在克隆 Gitee 仓库的 ${GITEE_BRANCH} 分支..."
           # 构建包含认证信息的 URL
           GITEE_AUTH_URL=$(echo "$GITEE_REPO_URL" | sed "s|https://|https://$GITEE_USERNAME:$GITEE_PASSWORD@|")
+          echo "GITEE_AUTH_URL = ${GITEE_AUTH_URL}"
           if ! git clone -b "$GITEE_BRANCH" "$GITEE_AUTH_URL" temp; then
             echo "❌ 克隆 Gitee 仓库失败"
             exit 1
